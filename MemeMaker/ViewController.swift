@@ -7,14 +7,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    // MARK: - IB Outlets
     @IBOutlet weak var topSegmentedControl: UISegmentedControl!
     @IBOutlet weak var bottomSegmentedControl: UISegmentedControl!
     
     @IBOutlet weak var topCaptionLabel: UILabel!
     @IBOutlet weak var bottomCaptionLabel: UILabel!
     
+    @IBOutlet weak var imageView: UIImageView!
+    
+    
+    // MARK: - Instance Properties
     let topChoices = [
         CaptionOption(emoji: "😱", caption: "OMG!!"),
         CaptionOption(emoji: "👀", caption: "Hey, look at this!"),
@@ -45,15 +50,8 @@ class ViewController: UIViewController {
         
         updateCaptions()
     }
-    
-    func updateCaptions() {
-        let topIndex = topSegmentedControl.selectedSegmentIndex
-        topCaptionLabel.text = topChoices[topIndex].caption
-        
-        let bottomIndex = bottomSegmentedControl.selectedSegmentIndex
-        bottomCaptionLabel.text = bottomChoices[bottomIndex].caption
-    }
 
+    // MARK: - IB Actions
     @IBAction func segmentedControlChanged(_ sender: Any) {
         updateCaptions()
     }
@@ -69,5 +67,30 @@ class ViewController: UIViewController {
             bottomCaptionLabel.center = sender.location(in: view)
         }
     }
+    
+    @IBAction func importPicture(_ sender: Any) {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+    
+    // MARK: - Instance Methods
+    func updateCaptions() {
+        let topIndex = topSegmentedControl.selectedSegmentIndex
+        topCaptionLabel.text = topChoices[topIndex].caption
+        
+        let bottomIndex = bottomSegmentedControl.selectedSegmentIndex
+        bottomCaptionLabel.text = bottomChoices[bottomIndex].caption
+    }
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.editedImage] as? UIImage else { return }
+        
+        imageView.image = image
+        dismiss(animated: true)
+    }
+    
 }
 
