@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PsB-np-zUQ">
-                                <rect key="frame" x="142" y="195" width="131" height="31"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PsB-np-zUQ">
+                                <rect key="frame" x="141.5" y="195" width="131" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="zTm-Vi-5iX"/>
                                 </constraints>
@@ -58,8 +58,8 @@
                                     <outletCollection property="gestureRecognizers" destination="iFx-gj-ceC" appends="YES" id="PaO-HW-lcx"/>
                                 </connections>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="e5M-5G-ZPa">
-                                <rect key="frame" x="142" y="648" width="131" height="31"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="e5M-5G-ZPa">
+                                <rect key="frame" x="141.5" y="648" width="131" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="hLL-D5-xkq"/>
                                 </constraints>
@@ -75,19 +75,33 @@
                                 <rect key="frame" x="0.0" y="34" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Title" id="0AC-A5-gcJ">
+                                    <navigationItem title="MemeMaster" id="0AC-A5-gcJ">
                                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="yLa-Si-Sq9">
                                             <connections>
                                                 <action selector="importPicture:" destination="BYZ-38-t0r" id="Avz-m4-hZD"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Jac-tW-VDt">
+                                            <connections>
+                                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="9qX-72-f91"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ojc-zl-MnM">
+                                <rect key="frame" x="100" y="708" width="214" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveMeme:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aVZ-uD-cWH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Ojc-zl-MnM" firstAttribute="top" secondItem="e5M-5G-ZPa" secondAttribute="bottom" constant="30" id="0Jk-3E-ECN"/>
                             <constraint firstItem="PsB-np-zUQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="151" id="0vW-Cb-Djn"/>
                             <constraint firstItem="PsB-np-zUQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3zN-jm-Yko"/>
                             <constraint firstItem="x7i-BQ-VbS" firstAttribute="top" secondItem="PsB-np-zUQ" secondAttribute="bottom" constant="38" id="6xw-dy-DTq"/>
@@ -99,10 +113,12 @@
                             <constraint firstItem="x7i-BQ-VbS" firstAttribute="leading" secondItem="JGW-zZ-RPx" secondAttribute="leading" id="TPQ-Ub-6KK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="e5M-5G-ZPa" secondAttribute="bottom" constant="184" id="TUm-4n-ByA"/>
                             <constraint firstItem="x7i-BQ-VbS" firstAttribute="trailing" secondItem="JGW-zZ-RPx" secondAttribute="trailing" id="aI6-qK-S6f"/>
+                            <constraint firstItem="Ojc-zl-MnM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="nSK-g3-zqx"/>
                             <constraint firstItem="PsB-np-zUQ" firstAttribute="leading" secondItem="e5M-5G-ZPa" secondAttribute="leading" id="p8C-B9-42z"/>
                             <constraint firstItem="x7i-BQ-VbS" firstAttribute="top" secondItem="QWz-pp-5Wr" secondAttribute="top" id="sYH-4Z-Tdw"/>
-                            <constraint firstItem="PsB-np-zUQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="142" id="v5n-c3-yxG"/>
+                            <constraint firstItem="PsB-np-zUQ" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="142" id="v5n-c3-yxG"/>
                             <constraint firstItem="PsB-np-zUQ" firstAttribute="trailing" secondItem="e5M-5G-ZPa" secondAttribute="trailing" id="wiP-3h-nfM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ojc-zl-MnM" secondAttribute="trailing" constant="100" id="x7X-tI-Dk4"/>
                             <constraint firstItem="e5M-5G-ZPa" firstAttribute="top" secondItem="x7i-BQ-VbS" secondAttribute="bottom" constant="35" id="xyb-Vg-tDc"/>
                         </constraints>
                     </view>
@@ -110,6 +126,7 @@
                         <outlet property="bottomCaptionLabel" destination="JGW-zZ-RPx" id="CyW-wC-Ikp"/>
                         <outlet property="bottomSegmentedControl" destination="e5M-5G-ZPa" id="awx-xB-lUb"/>
                         <outlet property="imageView" destination="x7i-BQ-VbS" id="D8x-0h-kfQ"/>
+                        <outlet property="shareButton" destination="Jac-tW-VDt" id="QcL-5I-smC"/>
                         <outlet property="topCaptionLabel" destination="QWz-pp-5Wr" id="zS9-zI-sND"/>
                         <outlet property="topSegmentedControl" destination="PsB-np-zUQ" id="t1D-Db-BCb"/>
                     </connections>
