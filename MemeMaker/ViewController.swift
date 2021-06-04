@@ -19,6 +19,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    
     
     // MARK: - Instance Properties
     let topChoices = [
@@ -87,6 +89,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func saveMeme(_ sender: Any) {
         saveImageAndText()
+    }
+    
+    @IBAction func shareMeme(_ sender: Any) {
+        shareTapped()
     }
     
     
@@ -164,6 +170,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             present(alert, animated: true)
         }
+    }
+    
+    // method for share button to share the meme with the system share sheet
+    func shareTapped() {
+        saveImageAndText()
+        guard let image = currentImage.jpegData(compressionQuality: 0.8) else { return }
+        let view = UIActivityViewController(activityItems: [image], applicationActivities: [])
+        view.popoverPresentationController?.barButtonItem = shareButton
+        present(view, animated: true)
     }
 
 }

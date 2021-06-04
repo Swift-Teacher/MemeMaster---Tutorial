@@ -75,10 +75,15 @@
                                 <rect key="frame" x="0.0" y="34" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Title" id="0AC-A5-gcJ">
+                                    <navigationItem title="MemeMaster" id="0AC-A5-gcJ">
                                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="yLa-Si-Sq9">
                                             <connections>
                                                 <action selector="importPicture:" destination="BYZ-38-t0r" id="Avz-m4-hZD"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Jac-tW-VDt">
+                                            <connections>
+                                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="9qX-72-f91"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -121,6 +126,7 @@
                         <outlet property="bottomCaptionLabel" destination="JGW-zZ-RPx" id="CyW-wC-Ikp"/>
                         <outlet property="bottomSegmentedControl" destination="e5M-5G-ZPa" id="awx-xB-lUb"/>
                         <outlet property="imageView" destination="x7i-BQ-VbS" id="D8x-0h-kfQ"/>
+                        <outlet property="shareButton" destination="Jac-tW-VDt" id="QcL-5I-smC"/>
                         <outlet property="topCaptionLabel" destination="QWz-pp-5Wr" id="zS9-zI-sND"/>
                         <outlet property="topSegmentedControl" destination="PsB-np-zUQ" id="t1D-Db-BCb"/>
                     </connections>
